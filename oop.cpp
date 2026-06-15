@@ -9,15 +9,26 @@ int main()
     cin>>t;
     while(t)
     {t--;
-        lli n,x;
+        lli n;
         vector<lli>v;
         string s,ss;
         cin>>n;
+        cin>>s;
+        ss=s;
+        sort(s.begin(),s.end());
         for(int i=0;i<n;i++)
         {
-            cin>>x;
-            v.push_back(x);
-        }sort(v.begin(),v.end());
-        cout<<v.back()-v.front()+1<<endl;
+            if(ss[i]!=s[i]){
+                v.push_back(i+1);
+            }
+        }
+        if(v.size()==0){cout<<"Bob\n";}
+        else{
+            cout<<"Alice\n";
+            cout<<v.size()<<endl;
+            for(int i=0;i<v.size();i++){
+                cout<<v[i]<<' ';
+            }cout<<endl;
+        }
     }
 }
